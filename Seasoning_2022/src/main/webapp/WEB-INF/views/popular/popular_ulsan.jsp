@@ -40,16 +40,14 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULtour}" var="SEOULtour">
+							<c:forEach items="${ULSANtour}" var="ULSANtour">
 								<div class="attr-container">
-								<a href="${rootPath}/detail/ex" style="color: black">
-									<span class="img"><img src="${SEOULtour.firstimage}"></span>
-									<span>[명소]&nbsp; <b>${SEOULtour.title}</b></span>
+									<span class="img"><img src="${ULSANtour.firstimage}"></span>
+									<span>[명소]&nbsp; <b>${ULSANtour.title}</b></span>
 									<span class="content">
-										<span>${SEOULtour.addr1}</span>
-										<span>${SEOULtour.tel}</span>
+										<span>${ULSANtour.addr1}</span>
+										<span>${ULSANtour.tel}</span>
 									</span>
-								</a>
 								</div>
 							</c:forEach>
 						</div>
@@ -70,13 +68,13 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULfood}" var="SEOULfood">
+							<c:forEach items="${ULSANfood}" var="ULSANfood">
 								<div class="attr-container">
-									<span class="img"><img src="${SEOULfood.firstimage}"></span>
-									<span>[식당]&nbsp; <b>${SEOULfood.title}</b></span>
+									<span class="img"><img src="${ULSANfood.firstimage}"></span>
+									<span>[식당]&nbsp; <b>${ULSANfood.title}</b></span>
 									<span class="content">
-										<span>${SEOULfood.addr1}</span>
-										<span>${SEOULfood.tel}</span>
+										<span>${ULSANfood.addr1}</span>
+										<span>${ULSANfood.tel}</span>
 									</span>
 								</div>
 							</c:forEach>
@@ -98,13 +96,13 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULlodgment}" var="SEOULlodgment">
+							<c:forEach items="${ULSANlodgment}" var="ULSANlodgment">
 								<div class="attr-container">
-									<span class="img"><img src="${SEOULlodgment.firstimage}"></span>
-									<span>[숙박]&nbsp; <b>${SEOULlodgment.title}</b></span>
+									<span class="img"><img src="${ULSANlodgment.firstimage}"></span>
+									<span>[숙박]&nbsp; <b>${ULSANlodgment.title}</b></span>
 									<span class="content">
-										<span>${SEOULlodgment.addr1}</span>
-										<span>${SEOULlodgment.tel}</span>
+										<span>${ULSANlodgment.addr1}</span>
+										<span>${ULSANlodgment.tel}</span>
 									</span>
 								</div>
 							</c:forEach>

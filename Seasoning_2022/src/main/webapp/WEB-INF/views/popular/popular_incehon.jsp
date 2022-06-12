@@ -40,16 +40,14 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULtour}" var="SEOULtour">
+							<c:forEach items="${INCHEONtour}" var="INCHEONtour">
 								<div class="attr-container">
-								<a href="${rootPath}/detail/ex" style="color: black">
-									<span class="img"><img src="${SEOULtour.firstimage}"></span>
-									<span>[명소]&nbsp; <b>${SEOULtour.title}</b></span>
+									<span class="img"><img src="${INCHEONtour.firstimage}"></span>
+									<span>[명소]&nbsp; <b>${INCHEONtour.title}</b></span>
 									<span class="content">
-										<span>${SEOULtour.addr1}</span>
-										<span>${SEOULtour.tel}</span>
+										<span>${INCHEONtour.addr1}</span>
+										<span>${INCHEONtour.tel}</span>
 									</span>
-								</a>
 								</div>
 							</c:forEach>
 						</div>
@@ -70,13 +68,13 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULfood}" var="SEOULfood">
+							<c:forEach items="${INCHEONfood}" var="INCHEONfood">
 								<div class="attr-container">
-									<span class="img"><img src="${SEOULfood.firstimage}"></span>
-									<span>[식당]&nbsp; <b>${SEOULfood.title}</b></span>
+									<span class="img"><img src="${INCHEONfood.firstimage}"></span>
+									<span>[식당]&nbsp; <b>${INCHEONfood.title}</b></span>
 									<span class="content">
-										<span>${SEOULfood.addr1}</span>
-										<span>${SEOULfood.tel}</span>
+										<span>${INCHEONfood.addr1}</span>
+										<span>${INCHEONfood.tel}</span>
 									</span>
 								</div>
 							</c:forEach>
@@ -98,13 +96,13 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULlodgment}" var="SEOULlodgment">
+							<c:forEach items="${INCHEONlodgment}" var="INCHEONlodgment">
 								<div class="attr-container">
-									<span class="img"><img src="${SEOULlodgment.firstimage}"></span>
-									<span>[숙박]&nbsp; <b>${SEOULlodgment.title}</b></span>
+									<span class="img"><img src="${INCHEONlodgment.firstimage}"></span>
+									<span>[숙박]&nbsp; <b>${INCHEONlodgment.title}</b></span>
 									<span class="content">
-										<span>${SEOULlodgment.addr1}</span>
-										<span>${SEOULlodgment.tel}</span>
+										<span>${INCHEONlodgment.addr1}</span>
+										<span>${INCHEONlodgment.tel}</span>
 									</span>
 								</div>
 							</c:forEach>

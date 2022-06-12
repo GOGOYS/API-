@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
@@ -18,19 +17,19 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.seasoning.app.model.LocationVO;
-import com.seasoning.app.service.LocationService;
+import com.seasoning.app.service.LodgmentLocationService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class locationServiceImpl implements LocationService{
+public class LodgmentLocationServiceImpl2 implements LodgmentLocationService{
 
 	
 	
 	//TODO 서울 지역별 API
 	@Override
-	public List<LocationVO>  getSeoulLocation() throws IOException{
+	public List<LocationVO>  getSeoul_LodgmentLocation() throws IOException{
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -40,7 +39,9 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("12", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -109,7 +110,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 부산 지역별 API
 	@Override
-	public List<LocationVO> getBusanLocation() throws IOException {
+	public List<LocationVO> getBusan_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -119,7 +120,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("6", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -187,7 +189,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 대구 지역별 API
 	@Override
-	public List<LocationVO> getDeaguLocation() throws IOException {
+	public List<LocationVO> getDeagu_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -197,7 +199,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("4", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -265,7 +268,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 인천 지역별 API
 	@Override
-	public List<LocationVO> getIncheonLocation() throws IOException {
+	public List<LocationVO> getIncheon_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -275,7 +278,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("2", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -343,7 +347,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 광주 지역별 API
 	@Override
-	public List<LocationVO> getGwangjuLocation() throws IOException {
+	public List<LocationVO> getGwangju_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -353,7 +357,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("5", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -421,7 +426,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 대전 지역별 API
 	@Override
-	public List<LocationVO> getDeajeonLocation() throws IOException {
+	public List<LocationVO> getDeajeon_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -431,7 +436,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("3", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -499,7 +505,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 울산 지역별 API
 	@Override
-	public List<LocationVO> getUlsanLocation() throws IOException {
+	public List<LocationVO> getUlsan_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -509,7 +515,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("7", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -578,7 +585,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 세종 지역별 API
 	@Override
-	public List<LocationVO> getSejongLocation() throws IOException {
+	public List<LocationVO> getSejong_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -588,7 +595,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("8", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -656,7 +664,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 경기도 제역별 API
 	@Override
-	public List<LocationVO> getGGDLocation() throws IOException {
+	public List<LocationVO> getGGD_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -666,7 +674,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("31", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -734,7 +743,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 강원도 지역별 API
 	@Override
-	public List<LocationVO> getGWDLocation() throws IOException {
+	public List<LocationVO> getGWD_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -744,7 +753,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("23", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -812,7 +822,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 충청북도 지역별 API
 	@Override
-	public List<LocationVO> getCBDLocation() throws IOException {
+	public List<LocationVO> getCBD_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -822,7 +832,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("33", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -890,7 +901,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 충청남도 지역별 API
 	@Override
-	public List<LocationVO> getCNDLocation() throws IOException {
+	public List<LocationVO> getCND_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 		try {
@@ -900,7 +911,8 @@ public class locationServiceImpl implements LocationService{
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("34", "UTF-8")); /*지역코드, 시군구코드*/
-			url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+			url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -968,7 +980,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 전라북도 지역 API
 	@Override
-	public List<LocationVO> getGRBDLocation() throws IOException {
+	public List<LocationVO> getGRBD_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -978,7 +990,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("35", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -1046,7 +1059,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 전라남도 지역별 API
 	@Override
-	public List<LocationVO> getGRNDLocation() throws IOException {
+	public List<LocationVO> getGRND_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -1056,7 +1069,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("36", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -1124,7 +1138,7 @@ public class locationServiceImpl implements LocationService{
 
 	//TODO 경상북도 지역별 API
 	@Override
-	public List<LocationVO> getGSBDLocation() throws IOException {
+	public List<LocationVO> getGSBD_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -1134,7 +1148,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("37", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -1202,7 +1217,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 경상남도 지역별 API
 	@Override
-	public List<LocationVO> getGSNDLocation() throws IOException {
+	public List<LocationVO> getGSND_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -1212,7 +1227,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("38", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -1281,7 +1297,7 @@ public class locationServiceImpl implements LocationService{
 	
 	//TODO 제주 지역별 APi
 	@Override
-	public List<LocationVO> getJejuLocation() throws IOException {
+	public List<LocationVO> getJeju_LodgmentLocation() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"; /*URL*/
 				try {
@@ -1291,7 +1307,8 @@ public class locationServiceImpl implements LocationService{
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("39", "UTF-8")); /*지역코드, 시군구코드*/
-					url += ("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*지역코드, 시군구코드*/
+					url += ("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("P", "UTF-8")); /*대표이미지 있는 조회순 정렬*/
+					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("32", "UTF-8")); /*관광지 코드 선택*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -1355,6 +1372,13 @@ public class locationServiceImpl implements LocationService{
 		        
 		        
 		        return list;
+	}
+
+
+	@Override
+	public String getContentId() throws IOException {
+		String contentId = getJeju_LodgmentLocation().get(0).contentid;
+		return contentId;
 	}
 
 }

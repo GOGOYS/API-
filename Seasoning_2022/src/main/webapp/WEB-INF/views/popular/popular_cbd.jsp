@@ -40,16 +40,14 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULtour}" var="SEOULtour">
+							<c:forEach items="${CBDtour}" var="CBDtour">
 								<div class="attr-container">
-								<a href="${rootPath}/detail/ex" style="color: black">
-									<span class="img"><img src="${SEOULtour.firstimage}"></span>
-									<span>[명소]&nbsp; <b>${SEOULtour.title}</b></span>
+									<span class="img"><img src="${CBDtour.firstimage}"></span>
+									<span>[명소]&nbsp; <b>${CBDtour.title}</b></span>
 									<span class="content">
-										<span>${SEOULtour.addr1}</span>
-										<span>${SEOULtour.tel}</span>
+										<span>${CBDtour.addr1}</span>
+										<span>${CBDtour.tel}</span>
 									</span>
-								</a>
 								</div>
 							</c:forEach>
 						</div>
@@ -70,13 +68,13 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULfood}" var="SEOULfood">
+							<c:forEach items="${CBDfood}" var="CBDfood">
 								<div class="attr-container">
-									<span class="img"><img src="${SEOULfood.firstimage}"></span>
-									<span>[식당]&nbsp; <b>${SEOULfood.title}</b></span>
+									<span class="img"><img src="${CBDfood.firstimage}"></span>
+									<span>[식당]&nbsp; <b>${CBDfood.title}</b></span>
 									<span class="content">
-										<span>${SEOULfood.addr1}</span>
-										<span>${SEOULfood.tel}</span>
+										<span>${CBDfood.addr1}</span>
+										<span>${CBDfood.tel}</span>
 									</span>
 								</div>
 							</c:forEach>
@@ -98,13 +96,13 @@
 				<div class="window">
 					<div class="slides">
 						<div class="slide">		
-							<c:forEach items="${SEOULlodgment}" var="SEOULlodgment">
+							<c:forEach items="${CBDlodgment}" var="SEOULlodgment">
 								<div class="attr-container">
-									<span class="img"><img src="${SEOULlodgment.firstimage}"></span>
-									<span>[숙박]&nbsp; <b>${SEOULlodgment.title}</b></span>
+									<span class="img"><img src="${CBDlodgment.firstimage}"></span>
+									<span>[숙박]&nbsp; <b>${CBDlodgment.title}</b></span>
 									<span class="content">
-										<span>${SEOULlodgment.addr1}</span>
-										<span>${SEOULlodgment.tel}</span>
+										<span>${CBDlodgment.addr1}</span>
+										<span>${CBDlodgment.tel}</span>
 									</span>
 								</div>
 							</c:forEach>

@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Builder
-public class TourListVO {
+public class TourDetailVO {
 	public String contentid;
 	public String contenttypeid;
 	public String accomcount;

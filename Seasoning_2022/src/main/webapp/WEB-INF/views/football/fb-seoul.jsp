@@ -160,8 +160,9 @@
 		</article>
 
 		<div>
-			<!-- 인기 관광지 -->
-			<%@ include file="/WEB-INF/views/popular/popular.jsp"%>
+
+				<%@ include file="/WEB-INF/views/popular/popular_seoul.jsp"%>
+
 		</div>
 
 

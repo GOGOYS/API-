@@ -7,6 +7,7 @@ import com.seasoning.app.model.AroundVO;
 
 public interface AroundService {
 	
+	public List<AroundVO> getSeoulAround()throws IOException;
 	public List<AroundVO> getDeaguAround()throws IOException;
 	public List<AroundVO> getGangwon1Around()throws IOException;
 	public List<AroundVO> getGangwon2Around()throws IOException;

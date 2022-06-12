@@ -16,19 +16,19 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.seasoning.app.model.FoodVO;
 import com.seasoning.app.model.LodgmentVO;
-import com.seasoning.app.model.TourListVO;
+import com.seasoning.app.model.TourDetailVO;
 import com.seasoning.app.service.DetailService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class TourListServiceImpl implements DetailService{
+public class DetailListServiceImpl implements DetailService{
 
 	
 	//TODO  관광지
 	@Override
-	public TourListVO getTourDetail() throws IOException {
+	public TourDetailVO getTourDetail() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 		String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro"; /*URL*/
 		try {
@@ -37,7 +37,7 @@ public class TourListServiceImpl implements DetailService{
 			url += ("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*현재 페이지 번호 이거 필수값 아님 없애도 됨*/
 			url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 			url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
-			url += ("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode("2674675", "UTF-8")); /*서비스명=어플명*/
+			url += ("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode("1118680", "UTF-8")); /*서비스명=어플명*/
 			url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("15", "UTF-8")); /*서비스명=어플명*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class TourListServiceImpl implements DetailService{
       
         // VO에 저장
         Gson gson = new Gson();
-        TourListVO vo = gson.fromJson(item.toString(), TourListVO.class);
+        TourDetailVO vo = gson.fromJson(item.toString(), TourDetailVO.class);
         
         //값 지정해서 콘텐츠 아이디 뽑아버리기
         log.debug(vo.contentid);
@@ -103,10 +103,9 @@ public class TourListServiceImpl implements DetailService{
         return vo;
 	}
 	
-	
-	//TODO 식당
+	//TODO 음식
 	@Override
-	public FoodVO getFoodDetail() throws IOException {
+	public TourDetailVO getFoodDetail() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro"; /*URL*/
 				try {
@@ -115,7 +114,7 @@ public class TourListServiceImpl implements DetailService{
 					url += ("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*현재 페이지 번호 이거 필수값 아님 없애도 됨*/
 					url +=  ("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드), WIN (원도우폰), ETC*/
 					url += ("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
-					url += ("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode("78455", "UTF-8")); /*서비스명=어플명*/
+					url += ("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode("1118680", "UTF-8")); /*서비스명=어플명*/
 					url += ("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode("39", "UTF-8")); /*서비스명=어플명*/
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
@@ -173,17 +172,16 @@ public class TourListServiceImpl implements DetailService{
 		      
 		        // VO에 저장
 		        Gson gson = new Gson();
-		        FoodVO vo = gson.fromJson(item.toString(), FoodVO.class);
+		        TourDetailVO vo = gson.fromJson(item.toString(), TourDetailVO.class);
 		        
 		        //값 지정해서 콘텐츠 아이디 뽑아버리기
 		        log.debug(vo.contentid);
 		        
 		        return vo;
 	}
-	
-	//TODO  숙박
+
 	@Override
-	public LodgmentVO getLodgmentDetail() throws IOException {
+	public TourDetailVO getLodgmentDetail() throws IOException {
 		//공공데이터 키값하고 원하는 설정 연결하기
 				String url ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro"; /*URL*/
 				try {
@@ -250,7 +248,7 @@ public class TourListServiceImpl implements DetailService{
 		      
 		        // VO에 저장
 		        Gson gson = new Gson();
-		        LodgmentVO vo = gson.fromJson(item.toString(), LodgmentVO.class);
+		        TourDetailVO vo = gson.fromJson(item.toString(), TourDetailVO.class);
 		        
 		        //값 지정해서 콘텐츠 아이디 뽑아버리기
 		        log.debug(vo.contentid);
@@ -258,4 +256,8 @@ public class TourListServiceImpl implements DetailService{
 		        return vo;
 	}
 
+	
+	
+	
+	
 }
