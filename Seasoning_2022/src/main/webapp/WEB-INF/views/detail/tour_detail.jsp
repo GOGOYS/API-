@@ -13,9 +13,45 @@
 
 	<div class="month-table">
 		<div class="month-text">
-			<p>관광지 리스트 상세</p>
 		</div>
 		<article class="table-container">
+		<p>공통정보</p>
+			<table>
+				<colgroup>
+					<col width="300px">
+					<col width="300px">
+					<col width="300px">
+				</colgroup>
+				<thead>
+					<tr>
+						<td>콘텐츠 id</td>
+						<td>관광타입</td>
+						<td>홈페이지 주소</td>
+						<td>이름</td>
+						<td>전화번호</td>
+						<td>썸네일</td>
+						<td>주소</td>
+						<td>개요</td>
+					</tr>
+				</thead>
+
+				<tbody>
+						<tr>
+							<td>${COMMONDETAIL.contentid}</td>
+							<td>${COMMONDETAIL.contenttypeid}</td>
+							<td>${COMMONDETAIL.homepage}</td>
+							<td>${COMMONDETAIL.title}</td>
+							<td>${COMMONDETAIL.tel}</td>
+							<td><img src="${COMMONDETAIL.firstimage}"></td>
+							<td>${COMMONDETAIL.addr1}</td>
+							<td>${COMMONDETAIL.overview}</td>							
+						</tr>
+				
+
+
+				</tbody>
+			</table>
+			<p>관광지 리스트 상세</p>
 			<table>
 				<colgroup>
 					<col width="300px">

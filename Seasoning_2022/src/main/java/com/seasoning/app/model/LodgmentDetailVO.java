@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Builder
-public class LodgmentDetailVO2 {
+public class LodgmentDetailVO {
 	
 	public String contentid;
 	public String contenttypeid;
